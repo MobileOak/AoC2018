@@ -9,6 +9,7 @@ class DayOne {
     fun start() {
         var lines = parseFile("input.txt")
         computePartAResult(lines)
+        computePartBResult(lines)
     }
 
     private fun parseFile(filename : String) : ArrayList<String> {
@@ -29,7 +30,19 @@ class DayOne {
     }
 
     private fun computePartBResult(lines : ArrayList<String>) {
-
+        var previousValues = HashSet<Int>();
+        var freq = 0;
+        while(true) {
+          lines.forEach {
+            freq += it.toInt()
+            if (previousValues.contains(freq)) {
+              println("The duplicate freq is " + freq);
+              return;
+            } else {
+              previousValues.add(freq);
+            }
+          }
+        }
     }
 
 }
