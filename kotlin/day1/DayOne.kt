@@ -17,11 +17,11 @@ class DayOne {
         File(filename).forEachLine {
             ret.add(it)
         }
-        return ret;
+        return ret
     }
 
     private fun computePartAResult(lines : ArrayList<String>) {
-        var freq = 0;
+        var freq = 0
         lines.forEach {
             freq += it.toInt()
         }
@@ -30,16 +30,16 @@ class DayOne {
     }
 
     private fun computePartBResult(lines : ArrayList<String>) {
-        var previousValues = HashSet<Int>();
-        var freq = 0;
+        var previousValues = HashSet<Int>()
+        var freq = 0
         while(true) {
           lines.forEach {
             freq += it.toInt()
             if (previousValues.contains(freq)) {
-              println("The duplicate freq is " + freq);
-              return;
+              println("The duplicate freq is " + freq)
+              return
             } else {
-              previousValues.add(freq);
+              previousValues.add(freq)
             }
           }
         }
