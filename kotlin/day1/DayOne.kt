@@ -12,29 +12,25 @@ class DayOne {
         computePartBResult(lines)
     }
 
-    private fun parseFile(filename : String) : ArrayList<String> {
-        val ret = ArrayList<String>()
+    private fun parseFile(filename : String) : ArrayList<Int> {
+        val ret = ArrayList<Int>()
         File(filename).forEachLine {
-            ret.add(it)
+            ret.add(it.toInt())
         }
         return ret
     }
 
-    private fun computePartAResult(lines : ArrayList<String>) {
-        var freq = 0
-        lines.forEach {
-            freq += it.toInt()
-        }
-
+    private fun computePartAResult(lines : ArrayList<Int>) {
+        var freq = lines.sum()
         println("Frequency is " + freq)
     }
 
-    private fun computePartBResult(lines : ArrayList<String>) {
+    private fun computePartBResult(lines : ArrayList<Int>) {
         var previousValues = HashSet<Int>()
         var freq = 0
         while(true) {
           lines.forEach {
-            freq += it.toInt()
+            freq += it
             if (previousValues.contains(freq)) {
               println("The duplicate freq is " + freq)
               return
